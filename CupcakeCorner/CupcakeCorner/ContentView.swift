@@ -3,26 +3,14 @@
 //
 
 import SwiftUI
-import Observation
-
-@Observable
-class User: Codable {
-  var name = "James"
-
-  enum CodingKeys: String, CodingKey {
-    case _name = "name"
-  }
-}
 
 struct ContentView: View {
-  var body: some View {
-    Button("Encode James", action: encodeJames)
-  }
+  @State private var counter = 0
 
-  func encodeJames() {
-    let data = try! JSONEncoder().encode(User())
-    let str = String(decoding: data, as: UTF8.self)
-    print(str)
+  var body: some View {
+    Button("Tap Count: \(counter)") {
+      counter += 1
+    }
   }
 }
 
