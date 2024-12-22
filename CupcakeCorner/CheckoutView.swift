@@ -37,6 +37,11 @@ struct CheckoutView: View {
       print("Failed to encode order")
       return
     }
+
+    let url = URL(string: "https://reqres.in/api/cupcakes")!
+    var request = URLRequest(url: url)
+    request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+    request.httpMethod = "POST"
   }
 }
 
