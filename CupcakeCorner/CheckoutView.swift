@@ -25,6 +25,7 @@ struct CheckoutView: View {
     }
     .navigationTitle("Check out")
     .navigationBarTitleDisplayMode(.inline)
+    .scrollBounceBehavior(.basedOnSize)
   }
 }
 
