@@ -8,6 +8,10 @@ import Observation
 @Observable
 class User: Codable {
   var name = "James"
+
+  enum CodingKeys: String, CodingKey {
+    case _name = "name"
+  }
 }
 
 struct ContentView: View {
