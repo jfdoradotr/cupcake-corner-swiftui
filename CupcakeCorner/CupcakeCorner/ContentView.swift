@@ -4,14 +4,23 @@
 
 import SwiftUI
 
+@Observable
+class Order {
+  static let types = ["Vanilla", "Strawberry", "Chocolate", "Rainbow"]
+
+  var type = 0
+  var quantity = 3
+
+  var specialRequestedEnabled = false
+  var extraFrosting = false
+  var addSprinkles = false
+}
+
 struct ContentView: View {
-  @State private var counter = 0
+  @State private var order = Order()
 
   var body: some View {
-    Button("Tap Count: \(counter)") {
-      counter += 1
-    }
-    .sensoryFeedback(.increase, trigger: counter)
+    Text("Hello")
   }
 }
 
