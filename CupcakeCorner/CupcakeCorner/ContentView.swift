@@ -26,6 +26,10 @@ struct ContentView: View {
       }
     }
   }
+
+  private func loadData() async {
+
+  }
 }
 
 #Preview {
