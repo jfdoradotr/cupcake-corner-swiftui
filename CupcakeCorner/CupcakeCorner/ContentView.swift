@@ -25,6 +25,9 @@ struct ContentView: View {
         Text(item.collectionName)
       }
     }
+    .task {
+      await loadData()
+    }
   }
 
   private func loadData() async {
