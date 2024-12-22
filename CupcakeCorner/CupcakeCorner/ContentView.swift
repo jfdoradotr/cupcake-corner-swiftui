@@ -20,6 +20,7 @@ struct ContentView: View {
           print("Creating account...")
         }
       }
+      .disabled(username.isEmpty || email.isEmpty)
     }
   }
 }
