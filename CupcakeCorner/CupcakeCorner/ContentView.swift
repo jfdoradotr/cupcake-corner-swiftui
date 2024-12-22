@@ -25,6 +25,13 @@ class Order {
   }
   var extraFrosting = false
   var addSprinkles = false
+
+  var hasValidAddress: Bool {
+    if name.isEmpty || streetAddress.isEmpty || city.isEmpty || zip.isEmpty {
+      return false
+    }
+    return true
+  }
 }
 
 struct ContentView: View {
