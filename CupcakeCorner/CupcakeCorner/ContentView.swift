@@ -8,6 +8,10 @@ import SwiftUI
 class Order {
   static let types = ["Vanilla", "Strawberry", "Chocolate", "Rainbow"]
 
+  var name = ""
+  var streetAddress = ""
+  var city = ""
+  var zip = ""
   var type = 0
   var quantity = 3
 
