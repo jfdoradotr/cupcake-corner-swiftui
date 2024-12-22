@@ -7,6 +7,9 @@ import SwiftUI
 struct CheckoutView: View {
   var order: Order
 
+  @State private var confirmationMessage = ""
+  @State private var showingConfirmation = false
+
   var body: some View {
     ScrollView {
       VStack {
@@ -30,6 +33,11 @@ struct CheckoutView: View {
     .navigationTitle("Check out")
     .navigationBarTitleDisplayMode(.inline)
     .scrollBounceBehavior(.basedOnSize)
+    .alert("Thank you!", isPresented: $showingConfirmation) {
+      Button("OK") {}
+    } message: {
+      Text(confirmationMessage)
+    }
   }
 
   func placeOrder() async {
