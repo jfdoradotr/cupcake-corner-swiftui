@@ -27,6 +27,10 @@ class Order: Codable {
   var addSprinkles = false
 
   var hasValidAddress: Bool {
+    let name = name.trimmingCharacters(in: .whitespacesAndNewlines)
+    let streetAddress = streetAddress.trimmingCharacters(in: .whitespacesAndNewlines)
+    let city = city.trimmingCharacters(in: .whitespacesAndNewlines)
+    let zip = zip.trimmingCharacters(in: .whitespacesAndNewlines)
     if name.isEmpty || streetAddress.isEmpty || city.isEmpty || zip.isEmpty {
       return false
     }
