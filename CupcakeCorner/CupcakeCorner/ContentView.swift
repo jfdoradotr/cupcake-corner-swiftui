@@ -15,9 +15,9 @@ class Order: Codable {
   var type = 0
   var quantity = 3
 
-  var specialRequestedEnabled = false {
+  var specialRequestEnabled = false {
     didSet {
-      if specialRequestedEnabled == false {
+      if specialRequestEnabled == false {
         extraFrosting = false
         addSprinkles = false
       }
@@ -83,9 +83,9 @@ struct ContentView: View {
         }
 
         Section {
-          Toggle("Any special requests?", isOn: $order.specialRequestedEnabled)
+          Toggle("Any special requests?", isOn: $order.specialRequestEnabled)
 
-          if order.specialRequestedEnabled {
+          if order.specialRequestEnabled {
             Toggle("Add extra frosting", isOn: $order.extraFrosting)
             Toggle("Add extra sprinkles", isOn: $order.addSprinkles)
           }
