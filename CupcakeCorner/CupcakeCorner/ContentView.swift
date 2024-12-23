@@ -8,10 +8,28 @@ import SwiftUI
 class Order: Codable {
   static let types = ["Vanilla", "Strawberry", "Chocolate", "Rainbow"]
 
-  var name = ""
-  var streetAddress = ""
-  var city = ""
-  var zip = ""
+  private let defaults = UserDefaults.standard
+
+  var name: String {
+    didSet {
+      UserDefaults.standard.set(name, forKey: "name")
+    }
+  }
+  var streetAddress: String {
+    didSet {
+      UserDefaults.standard.set(streetAddress, forKey: "streetAddress")
+    }
+  }
+  var city: String {
+    didSet {
+      UserDefaults.standard.set(city, forKey: "city")
+    }
+  }
+  var zip: String {
+    didSet {
+      UserDefaults.standard.set(zip, forKey: "zip")
+    }
+  }
   var type = 0
   var quantity = 3
 
@@ -67,6 +85,13 @@ class Order: Codable {
     case _city = "city"
     case _streetAddress = "streetAddress"
     case _zip = "zip"
+  }
+
+  init() {
+    name = UserDefaults.standard.string(forKey: "name") ?? ""
+    city = UserDefaults.standard.string(forKey: "city") ?? ""
+    streetAddress = UserDefaults.standard.string(forKey: "streetAddress") ?? ""
+    zip = UserDefaults.standard.string(forKey: "zip") ?? ""
   }
 }
 
